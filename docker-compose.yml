@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  master:
+    build: master
+    expose:
+      - "5432"
+    networks:
+      - db_network
+  slave:
+    build: slave
+    expose:
+      - "5433"
+    networks:
+      - db_network
+
+networks:
+  db_network:
